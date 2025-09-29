@@ -1,0 +1,73 @@
+# Ignore Visual Studio temporary files, build results, and user-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+**/bin/
+**/obj/
+
+# Test results
+/TestResults/
+*.TestExecution.json
+TestExecution.json
+*.trx
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+
+# Publish outputs
+/publish/
+**/publish/
+
+# Rider
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# SpecFlow/LivingDoc artifacts
+livingdoc.html
+*.livingdoc
+
+# Dotnet tools
+.tools/
+.dotnet_tool_restore
+
+# Database files
+*.mdf
+*.ldf
+*.sqlite
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Log files
+*.log
+
+# Secrets and local settings
+secrets.json
+appsettings.*.local.json
+
+# Optional: exclude generated build artifacts
+*.cache
+*.ilk
+*.meta
+*.obj
+
+# Keep Notes.md tracked but ignore personal notes if any
+!Notes.md
+
+# Ignore Visual Studio Code workspace storage
+.vscode/*storage.json

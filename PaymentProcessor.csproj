@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Exclude test project source files from the main project build -->
+  <ItemGroup>
+    <Compile Remove="PaymentProcessor.Bdd.Tests\**\*.cs" />
+  </ItemGroup>
+
+</Project>
