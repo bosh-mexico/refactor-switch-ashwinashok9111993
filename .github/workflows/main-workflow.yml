@@ -23,5 +23,9 @@ jobs:
     - name: Build project
       run: dotnet build PaymentProcessor.csproj --configuration ${{ matrix.configuration }}
 
+    - name: Run tests
+      run: |
+        dotnet test ./PaymentProcessor.Bdd.Tests/PaymentProcessor.Bdd.Tests.csproj --configuration ${{ matrix.configuration }} --logger "trx;LogFileName=test-results.trx"
+
     - name: Run project
       run: dotnet run --project PaymentProcessor.csproj
