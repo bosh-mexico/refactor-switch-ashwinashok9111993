@@ -80,3 +80,9 @@ Notes.md
 
 # jscpd config
 .jscpd.json
+
+# Ignore GitHub workflow files (reduce duplicate detection noise)
+.github/workflows/
+
+# Ignore sample/demo program used for manual runs
+Program.cs
