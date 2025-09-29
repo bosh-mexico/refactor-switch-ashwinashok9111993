@@ -15,25 +15,17 @@ public class CheckoutService
 
     public void Checkout(PaymentMode mode, double amount)
     {
-        if (amount <= 0)
-        {
-            _logger("Amount must be greater than zero.");
-            return;
-        }
-
-        var processor = _factory.Create(mode, _logger);
-        if (processor != null)
-        {
-            processor.Process(amount);
-        }
-        else
-        {
-            _logger("Invalid payment mode selected!");
-        }
+        Process(amount, () => _factory.Create(mode, _logger));
     }
 
     // New overload: accept runtime-registered string keys
     public void Checkout(string modeKey, double amount)
+    {
+        Process(amount, () => _factory.Create(modeKey, _logger));
+    }
+
+    // Shared processing logic used by both overloads
+    private void Process(double amount, Func<IPaymentProcessor?> getProcessor)
     {
         if (amount <= 0)
         {
@@ -41,7 +33,7 @@ public class CheckoutService
             return;
         }
 
-        var processor = _factory.Create(modeKey, _logger);
+        var processor = getProcessor();
         if (processor != null)
         {
             processor.Process(amount);

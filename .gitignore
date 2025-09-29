@@ -67,7 +67,7 @@ appsettings.*.local.json
 *.obj
 
 # Keep Notes.md tracked but ignore personal notes if any
-!Notes.md
+Notes.md
 
 # Ignore Visual Studio Code workspace storage
 .vscode/*storage.json
