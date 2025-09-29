@@ -79,7 +79,7 @@ Notes.md
 **/SpecFlow*.cs
 
 # jscpd config
-.jscpd.json
+
 
 # Ignore GitHub workflow files (reduce duplicate detection noise)
 .github/workflows/

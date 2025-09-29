@@ -1,0 +1,13 @@
+{
+  "minLines": 3,
+  "minTokens": 25,
+  "threshold": 0,
+  "ignore": [
+    "**/.github/workflows/**",
+    "**/.github/workflows/**/*.yml",
+    "**/.github/workflows/**/*.yaml",
+    "**/*.feature.cs",
+    "**/PaymentProcessor.Bdd.Tests/Steps/**",
+    "Program.cs"
+  ]
+}
