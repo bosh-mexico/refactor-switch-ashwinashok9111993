@@ -1,0 +1,16 @@
+name: Lint
+
+on: [push, pull_request]
+  
+jobs:
+  inspect-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Build and Lint
+        run: dotnet build PaymentProcessor.csproj --configuration Release

@@ -1,0 +1,55 @@
+name: CI - Tests + LivingDoc
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run tests and produce SpecFlow LivingDoc execution JSON
+        run: |
+          dotnet test ./PaymentProcessor.Bdd.Tests/PaymentProcessor.Bdd.Tests.csproj --no-build --logger "SpecFlow+LivingDoc;LogFileName=TestExecution.json" --configuration Release
+        working-directory: ${{ github.workspace }}
+
+      - name: Install LivingDoc CLI
+        run: |
+          dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI --version 3.9.74
+          echo "##vso[task.prependpath]$HOME/.dotnet/tools"
+
+      - name: Generate LivingDoc HTML
+        run: |
+          # test assembly path
+          TEST_DLL=$(pwd)/PaymentProcessor.Bdd.Tests/bin/Release/net8.0/PaymentProcessor.Bdd.Tests.dll
+          livingdoc test-assembly $TEST_DLL -t TestExecution.json -o livingdoc.html -p "PaymentProcessor BDD"
+        working-directory: ${{ github.workspace }}
+
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifacts
+          path: |
+            PaymentProcessor.Bdd.Tests/TestExecution.json
+            livingdoc.html
+            PaymentProcessor.Bdd.Tests/bin/Release/net8.0/PaymentProcessor.Bdd.Tests.dll
+
+      - name: Display LivingDoc path
+        run: echo "LivingDoc generated at ${{ github.workspace }}/livingdoc.html"

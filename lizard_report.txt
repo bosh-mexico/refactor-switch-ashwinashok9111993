@@ -1,0 +1,43 @@
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+       4      1     22      0       4 CheckoutSteps::GivenACheckoutService@18-21@.\PaymentProcessor.Bdd.Tests\Steps\CheckoutSteps.cs
+       4      1     27      2       4 CheckoutSteps::GivenIRegisterAProcessor@24-27@.\PaymentProcessor.Bdd.Tests\Steps\CheckoutSteps.cs
+       4      1     16      1       4 CheckoutSteps::GivenIQuerySupportFor@30-33@.\PaymentProcessor.Bdd.Tests\Steps\CheckoutSteps.cs
+      10      3     62      2      13 CheckoutSteps::WhenICheckoutUsingWithAmount@36-48@.\PaymentProcessor.Bdd.Tests\Steps\CheckoutSteps.cs
+       4      1     31      1       4 CheckoutSteps::ThenTheLogsShouldContain@51-54@.\PaymentProcessor.Bdd.Tests\Steps\CheckoutSteps.cs
+       4      1     18      1       4 CheckoutSteps::ThenTheResultShouldBe@57-60@.\PaymentProcessor.Bdd.Tests\Steps\CheckoutSteps.cs
+       1      1     21      2       1 TestProcessor::TestProcessor@66-66@.\PaymentProcessor.Bdd.Tests\Steps\CheckoutSteps.cs
+       7      1     48      0       7 BDDTests::CreateService@12-18@.\PaymentProcessor.Bdd.Tests\BDDTests.cs
+       6      1     53      0       6 BDDTests::SuccessfulModesData@20-25@.\PaymentProcessor.Bdd.Tests\BDDTests.cs
+       7      1     77      3       9 BDDTests::Successful_Mode_Processes@29-37@.\PaymentProcessor.Bdd.Tests\BDDTests.cs
+       6      1     49      0       8 BDDTests::Invalid_Payment_Mode_Logs_Error@40-47@.\PaymentProcessor.Bdd.Tests\BDDTests.cs
+       6      1     51      1       8 BDDTests::Invalid_Amounts_Are_Rejected@52-59@.\PaymentProcessor.Bdd.Tests\BDDTests.cs
+       5      3     41      2       5 CheckoutService::CheckoutService@10-14@.\CheckoutService.cs
+       4      1     27      2       4 CheckoutService::Checkout@16-19@.\CheckoutService.cs
+       4      1     27      2       4 CheckoutService::Checkout@22-25@.\CheckoutService.cs
+      17      3     59      2      18 CheckoutService::Process@28-45@.\CheckoutService.cs
+       7      1     73      0       9 PaymentProcessorFactory::PaymentProcessorFactory@20-28@.\PaymentProcessorFactory.cs
+       5      3     56      2       5 PaymentProcessorFactory::Register@30-34@.\PaymentProcessorFactory.cs
+      11      1    101      0      13 Program::Main@7-19@.\Program.cs
+10 file analyzed.
+==============================================================
+NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
+--------------------------------------------------------------
+     57       4.4     1.3       28.1         7     .\PaymentProcessor.Bdd.Tests\Steps\CheckoutSteps.cs
+     47       6.4     1.0       55.6         5     .\PaymentProcessor.Bdd.Tests\BDDTests.cs
+     37       7.5     2.0       38.5         4     .\CheckoutService.cs
+      8       0.0     0.0        0.0         0     .\CreditCardProcessor.cs
+      8       0.0     0.0        0.0         0     .\GooglePayProcessor.cs
+      2       0.0     0.0        0.0         0     .\PaymentMode.cs
+     34       6.0     2.0       64.5         2     .\PaymentProcessorFactory.cs
+      8       0.0     0.0        0.0         0     .\PayPalProcessor.cs
+      3       0.0     0.0        0.0         0     .\Processors.cs
+     17      11.0     1.0      101.0         1     .\Program.cs
+
+==============================================================================================================
+No thresholds exceeded (cyclomatic_complexity > 3 or length > 1000 or nloc > 1000000 or parameter_count > 100)
+==========================================================================================
+Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
+------------------------------------------------------------------------------------------
+       221       6.1     1.4       45.2       19            0      0.00    0.00

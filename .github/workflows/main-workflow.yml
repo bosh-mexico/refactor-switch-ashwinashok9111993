@@ -1,0 +1,31 @@
+name: Build Run
+
+on: [push, pull_request]
+
+env:
+  DOTNET_VERSION: '8.0'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug]
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Build project
+      run: dotnet build PaymentProcessor.csproj --configuration ${{ matrix.configuration }}
+
+    - name: Run tests
+      run: |
+        dotnet test ./PaymentProcessor.Bdd.Tests/PaymentProcessor.Bdd.Tests.csproj --configuration ${{ matrix.configuration }} --logger "trx;LogFileName=test-results.trx"
+
+    - name: Run project
+      run: dotnet run --project PaymentProcessor.csproj
