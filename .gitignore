@@ -71,3 +71,12 @@ appsettings.*.local.json
 
 # Ignore Visual Studio Code workspace storage
 .vscode/*storage.json
+
+# Ignore generated SpecFlow feature code (designer files)
+**/*.feature.cs
+
+# Ignore SpecFlow generated assembly hooks and test artifacts
+**/SpecFlow*.cs
+
+# jscpd config
+.jscpd.json
